@@ -1,0 +1,8 @@
+$item-bg : #F7F7F7;
+$item-height : 40px;
+
+.file-browser-item {
+    background-color: $item-bg;
+    height: $item-height;
+    padding: 5px;
+}
