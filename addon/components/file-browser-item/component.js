@@ -1,10 +1,10 @@
 import Ember from 'ember';
 import layout from './template';
 
+
+
 export default Ember.Component.extend({
     layout,
-    classNames: ['file-browser-item'],
-
     selected: Ember.computed('selectedItems.[]', function() {
         // TODO: This would be better if selectedItems were a hash. Can Ember
         // observe when properties are added to or removed from an object?
@@ -13,7 +13,14 @@ export default Ember.Component.extend({
         return index > -1;
     }),
 
-    click() {
+    click(e) {
+        // Set selected status
+        // if(e.shiftKey || e.metaKey) {
+        this.sendAction('multiSelect', this.get('item'), e);
+        // } else {
+        //
+        // }
+
         this.sendAction('selectItem', this.get('item'));
     },
 

@@ -21,9 +21,11 @@
         cell-layout=(fixed-grid-layout itemWidth itemHeight)
         as |item index|}}
         {{file-browser-item item=item
+            selectedItems=selectedItems
         navigateToItem=(action 'navigateToItem')
         selectItem=(action 'selectItem')
         openItem=(action 'openItem')
+        multiSelect=(action 'multiSelect')
         }}
     {{/ember-collection}}
     {{#unless itemsLoaded}}

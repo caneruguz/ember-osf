@@ -96,7 +96,6 @@ export default Ember.Component.extend({
 
     actions: {
         selectItem(item) {
-            item.set('isSelected', true);
             if (item.get('isFile') && this.get('selectFile')) {
                 this.sendAction('selectFile', unwrapItem(item));
             }
@@ -115,6 +114,48 @@ export default Ember.Component.extend({
             if (item.get('canHaveChildren')) {
                 this.send('navigateToItem', item);
             }
+        },
+
+        multiSelect(item, e) {
+            let selected = this.get('selectedItems');
+            let items = this.get('items');
+            if(e.shiftKey || e.metaKey){
+                // handle multi select
+                if(e.metaKey){
+                    item.toggleProperty('isSelected');
+                }
+                if(e.shiftKey){
+                    // get the last item selected index
+                    let lastItem = selected[selected.length-1];
+                    let lastIndex = items.indexOf(lastItem);
+                    // get current item selected index
+                    var currentItemIndex = items.indexOf(item);
+                    // find out which index is bigger and buidl loop
+                    if(lastIndex > -1 && currentItemIndex > -1){
+                        if(currentItemIndex > lastIndex){
+                            for(let m = lastIndex; m <= currentItemIndex; m++){
+                                items[m].set('isSelected', true);
+                            }
+                        } else {
+                            for(let n = currentItemIndex; n <= lastIndex; n++){
+                                items[n].set('isSelected', true);
+                            }
+                        }
+                    }
+
+                }
+
+            } else {
+                // handle single select
+                let status = item.get('isSelected');
+                for(let i = 0; i < selected.length; i++){
+                    selected[i].set('isSelected', false);
+                }
+                if(!status){
+                    item.set('isSelected', true);
+                }
+            }
+
         },
 
         navigateToItem(item) {

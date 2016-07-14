@@ -1,3 +1,5 @@
 {{! TODO: configurable columns }}
-{{file-browser-icon item=item}}
-<a {{action 'open'}}>{{item.itemName}}</a>
+<div class="file-browser-item {{if selected 'item-isSelected'}}">
+    {{file-browser-icon item=item}}
+    <a {{action 'open'}}>{{item.itemName}}</a>
+</div>
