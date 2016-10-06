@@ -1,4 +1,14 @@
 {{title "Home"}}
+
+<div class="m-lg p-lg">
+    {{osf-tb nodeId="5xr2q"}}
+</div>
+
+
+<hr>
+
+
+
 {{link-to 'My Nodes' 'nodes' class="btn btn-default"}}
 {{link-to 'My Registrations' 'registrations' class="btn btn-warning"}}
 {{link-to 'All Institutions' 'institutions' class="btn btn-danger"}}
@@ -7,6 +17,3 @@
 {{link-to 'Collections' 'collections' class="btn btn-default"}}
 
 <br>
-<hr>
-
-{{file-widget preUpload=(action 'preUpload') buildUrl=(action 'buildUrl') listeners=dropzoneOptions options=dropzoneOptions}}
