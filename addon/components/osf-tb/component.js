@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   store : Ember.inject.service(),
   files : Ember.A(),
   breadCrumbs : Ember.A(),
+  columns: Ember.A(['itemName']),
   loadFiles : function (item) { // When node changes load node files
       this.set('files', Ember.A([]));
       if(item){
@@ -42,5 +43,6 @@ export default Ember.Component.extend({
   init () {
       this._super(...arguments);
       this.loadFiles();
+      this.set('columns', Ember.A(this.get('options.columns')));
   }
 });

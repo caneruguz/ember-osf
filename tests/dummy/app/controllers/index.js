@@ -6,6 +6,9 @@ export default Ember.Controller.extend(OsfTokenLoginControllerMixin, {
     dropzoneOptions: {
         method: 'PUT'
     },
+    tbOptions : {
+        columns : ['itemName', 'dateCreated']
+    },
     actions: {
         buildUrl() {
             return this.get('_url');

@@ -1,1 +1,6 @@
-<div class="osf-tb-item {{if selected 'osf-tb-selected'}} p-sm">{{item.itemName}}</div>
+<div class="osf-tb-row">
+    {{#each columns as |column|}}
+        {{log column}}
+        <div class="osf-tb-column {{if selected 'osf-tb-selected'}} p-sm">{{get item column}}</div>
+    {{/each}}
+</div>

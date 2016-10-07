@@ -4,9 +4,13 @@
     width: 600px;
 }
 
-.osf-tb-item {
+.osf-tb-row {
     border-bottom: 1px solid #eee;
     height: 35px;
+}
+
+.osf-tb-column {
+    display: inline-block;
 }
 .osf-tb-selected {
     background: #204762;
