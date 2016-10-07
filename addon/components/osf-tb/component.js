@@ -31,6 +31,12 @@ export default Ember.Component.extend({
           this.loadFiles(item);
           this.breadCrumbs.pushObject(item);
           console.log(this.get('breadCrumbs')[0]);
+      },
+      loadCrumb (item, index) {
+          console.log(item);
+          this.loadFiles(item);
+          let slicedCrumbs = this.breadCrumbs.slice(0, index + 1);
+          this.set('breadCrumbs', Ember.A(slicedCrumbs));
       }
   },
   init () {

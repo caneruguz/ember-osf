@@ -1,6 +1,6 @@
 <div class="osf-box">
-    {{#each breadCrumbs as |crumb|}}
-        {{crumb.itemName}} >
+    {{#each breadCrumbs as |crumb index|}}
+        <div {{action 'loadCrumb' crumb index}}>{{crumb.itemName}} > </div>
     {{/each}}
 </div>
 <div class="osf-tb-rows">
