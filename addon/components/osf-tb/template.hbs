@@ -5,10 +5,17 @@
 </div>
 <div class="osf-tb-rows">
 
-    {{#ember-collection items=files
-        cell-layout=(fixed-grid-layout 600 35)
-        as |file index|}}
-        {{osf-tb-item item=file clickItem=(action 'clickItem') dblClickItem=(action 'dblClickItem')}}
-    {{/ember-collection}}
 
+    {{#if files}}
+        {{#ember-collection items=files
+            cell-layout=(fixed-grid-layout 600 35)
+            as |file index|}}
+            {{osf-tb-item item=file clickItem=(action 'clickItem') dblClickItem=(action 'dblClickItem')}}
+        {{/ember-collection}}
+    {{else}}
+        <div class="p-md">
+            <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw text-muted"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+    {{/if}}
 </div>
