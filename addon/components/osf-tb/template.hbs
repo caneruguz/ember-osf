@@ -4,13 +4,11 @@
     {{/each}}
 </div>
 <div class="osf-tb-rows">
-
-
     {{#if files}}
         {{#ember-collection items=files
             cell-layout=(fixed-grid-layout 600 35)
             as |file index|}}
-            {{osf-tb-item item=file columns=columns clickItem=(action 'clickItem') dblClickItem=(action 'dblClickItem') }}
+            {{osf-tb-item item=file columns=columns selectedItems=selectedItems multiSelect=(action 'multiSelect') dblClickItem=(action 'dblClickItem') }}
         {{/ember-collection}}
     {{else}}
         <div class="p-md">
