@@ -49,7 +49,7 @@ export default Ember.Component.extend({
           if(e.shiftKey || e.metaKey){
               // handle multi select
               if(e.metaKey){
-                  item.toggleProperty('isSelected');
+                  this.updateSelectedStatus(item);
               }
               if(e.shiftKey){
                   // get the last item selected index
