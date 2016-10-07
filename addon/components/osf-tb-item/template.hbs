@@ -1,6 +1,12 @@
-<div class="osf-tb-row">
+<div class="osf-tb-row {{if selected 'osf-tb-selected'}}" >
+    <div class="osf-tb-column">
+        {{#if (eq item.kind 'folder')}}
+            <i class="fa fa-folder"></i>
+        {{else}}
+            <i class="fa fa-file"></i>
+        {{/if}}
+    </div>
     {{#each columns as |column|}}
-        {{log column}}
-        <div class="osf-tb-column {{if selected 'osf-tb-selected'}} p-sm">{{get item column}}</div>
+        <div class="osf-tb-column p-sm">{{get item column}}</div>
     {{/each}}
 </div>
