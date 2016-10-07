@@ -5,11 +5,10 @@
 </div>
 <div class="osf-tb-rows">
     {{#if files}}
-        {{#ember-collection items=files
-            cell-layout=(fixed-grid-layout 600 35)
-            as |file index|}}
+        {{#each files as |file|}}
             {{osf-tb-item item=file columns=columns selectedItems=selectedItems multiSelect=(action 'multiSelect') dblClickItem=(action 'dblClickItem') }}
-        {{/ember-collection}}
+        {{/each}}
+
     {{else}}
         <div class="p-md">
             <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw text-muted"></i>
