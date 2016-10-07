@@ -8,14 +8,14 @@ export default Ember.Component.extend({
   layout,
   store : Ember.inject.service(),
   files : Ember.A(),
-  currentModel : null,
+  breadCrumbs : Ember.A(),
   loadFiles : function (item) { // When node changes load node files
       this.set('files', Ember.A([]));
       if(item){
           loadAll(item, 'files', this.get('files'));
+          console.log(item, this.get('breadCrumbs'));
       } else {
           this.get('store').findRecord('node', this.get('nodeId')).then( model => {
-              this.set('currentItem', item);
               loadAll(model, 'files', this.get('files'));
           });
       }
@@ -29,6 +29,8 @@ export default Ember.Component.extend({
       dblClickItem (item) {
           console.log('dblClickItemTop');
           this.loadFiles(item);
+          this.breadCrumbs.pushObject(item);
+          console.log(this.get('breadCrumbs')[0]);
       }
   },
   init () {
