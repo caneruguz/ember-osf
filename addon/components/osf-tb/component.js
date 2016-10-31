@@ -9,7 +9,6 @@ export default Ember.Component.extend({
   store : Ember.inject.service(),
   files : Ember.A(),
   breadCrumbs : Ember.A(),
-  columns: Ember.A(['itemName']),
   selectedItems : Ember.A(),
   loadFiles : function (item) { // When node changes load node files
       this.set('files', Ember.A([]));

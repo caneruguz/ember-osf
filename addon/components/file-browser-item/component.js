@@ -18,6 +18,8 @@ export default Ember.Component.extend({
         return index > -1;
     }),
 
+
+
     click() {
         this.sendAction('selectItem', this.get('item'));
     },

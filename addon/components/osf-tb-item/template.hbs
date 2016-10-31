@@ -7,6 +7,7 @@
         {{/if}}
     </div>
     {{#each columns as |column|}}
-        <div class="osf-tb-column p-sm">{{get item column}}</div>
+        <div class="osf-tb-column" style="width: {{column.width}}">{{get item column.data}}</div>
+        {{log column.data}}
     {{/each}}
 </div>

@@ -7,7 +7,18 @@ export default Ember.Controller.extend(OsfTokenLoginControllerMixin, {
         method: 'PUT'
     },
     tbOptions : {
-        columns : ['itemName', 'dateCreated']
+        columns: [
+            {
+                label : 'Name',
+                data : 'itemName',
+                width : '50%'
+            },
+            {
+                label : 'Date created',
+                data : 'dateCreated',
+                width: '50%'
+            }
+        ]
     },
     actions: {
         buildUrl() {

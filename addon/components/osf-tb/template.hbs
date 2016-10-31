@@ -4,6 +4,11 @@
     {{/each}}
 </div>
 <div class="osf-tb-rows">
+    <div class="osf-tb-row osf-tb-col-header">
+        {{#each columns as |column|}}
+            <div class="osf-tb-column" style="width: {{column.width}}">{{column.label}}</div>
+        {{/each}}
+    </div>
     {{#if files}}
         {{#each files as |file|}}
             {{osf-tb-item item=file columns=columns selectedItems=selectedItems multiSelect=(action 'multiSelect') dblClickItem=(action 'dblClickItem') }}

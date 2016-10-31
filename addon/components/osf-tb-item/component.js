@@ -10,6 +10,17 @@ export default Ember.Component.extend({
       let index = selectedItems.indexOf(this.get('item'));
       return index > -1;
   }),
+  didInsertElement() {
+      let drop = new Dropzone(`#${this.elementId}`, {// jshint ignore:line
+          url: this.get('item.kind'),
+          autoProcessQueue: false,
+          dictDefaultMessage: 'Drop it!'
+      });
+      drop.on('addedfile', file => {
+          console.log(file);
+          console.log(this);
+      });
+  },
   click (e) {
       this.sendAction('multiSelect', this.get('item'), e);
   },
