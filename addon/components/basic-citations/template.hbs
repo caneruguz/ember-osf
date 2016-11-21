@@ -1,5 +1,10 @@
 <div class="eosf-basic-citations">
-    {{#each citationTexts as |citation|}}
-        <p>{{citation}}</p>
+    {{#each citations as |c|}}
+        <h4> {{c.label}}</h4>
+        {{# if c.error}}
+            <p class="text-danger text-smaller">{{c.error}}</p>
+        {{else}}
+            <p>{{c.citation}}</p>
+        {{/if}}
     {{/each}}
 </div>
